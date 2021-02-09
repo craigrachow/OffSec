@@ -1,0 +1,60 @@
+################################
+#                              #
+#  Setting Up PenTest Machine  #
+#                              #
+################################
+
+## Install Kali ##
+
+## Install Tools ##
+# Install Juice Shop #
+  git clone HTTPS://github.com/juice-shop folder
+  Sudo apt install nodejs
+  sudo  npm install –force
+  Install FoxyProxy for web browser. It’s a plugin. Configure for ip 127.0.0.1
+  Install Sublist3r
+  sudo apt install sublist3r
+
+
+
+Enumeration
+
+Information on domain links
+sublist3r -d irobot.com
+search crt.sh website for domain information, %.irobot.com 
+
+
+Links
+https://github.com/hmaverickadams
+https://github.com/bkimminich/juice-shop
+https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/
+https://owasp.org/www-project-web-security-testing-guide/
+https://github.com/OWASP/wstg
+https://github.com/tanprathan/OWASP-Testing-Checklist
+https://www.thecybermentor.com/zero-to-hero-pentesting
+https://github.com/tanprathan/OWASP-Testing-Guide-v5/blob/master/document/5_Reporting/Reporting.md
+Additional Learning 
+https://tulpasecurity.files.wordpress.com/2016/09/tulpa-pwk-prep-guide1.pdf
+https://bpatty.rocks/#!index.md
+https://guide.offsecnewbie.com/
+https://sushant747.gitbooks.io/total-oscp-guide/content/list_of_common_ports.html
+https://github.com/AnasAboureada/Penetration-Testing-Study-Notes/blob/master/scripts/useful_tricks.md & https://github.com/AnasAboureada/Penetration-Testing-Study-Notes/blob/master/cheatSheets/Cheatsheet_PenTesting.txt
+https://github.com/so87/OSCP-PwK/blob/master/Penetration%20Testing%20Tools.pdf
+https://thehacktoday.com/how-to-crack-a-password-protected-zip-files-using-kali-linux/
+https://www.reddit.com/r/oscp/comments/a9e2yv/from_0_to_oscp_in_90days/
+
+https://bitvijays.github.io/LFC-VulnerableMachines.html
+https://github.com/jivoi/pentest
+
+https://github.com/bkimminich/www-project-web-security-testing-guide
+
+############################
+#                          #
+#  Good Learning Material  #
+#                          #
+############################
+
+## Web Courses ##
+# Hack the Box Acadmy #
+  https://academy.hackthebox.eu
+  
