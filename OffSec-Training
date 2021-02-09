@@ -11,7 +11,8 @@
   git clone HTTPS://github.com/juice-shop folder
   Sudo apt install nodejs
   sudo  npm install –force
-  Install FoxyProxy for web browser. It’s a plugin. Configure for ip 127.0.0.1
+ #Install FoxyProxy for web browser. It’s a plugin. Configure for ip 127.0.0.1
+ #Install Wappalizer for web browser
  # Install Sublist3r #
   sudo apt install sublist3r
  # Check for Nikto, Dirbusster, cURL, Nmap, 
@@ -33,7 +34,9 @@
   sublist3r -d irobot.com
   # search crt.sh # -- website for domain information
   %.irobot.com 
-
+  # search domain at hunter.io -- this will give email addresses  
+  # visit target website and look at firefox plugin Wappalizer -- will display webapp hosting info
+  
 ## Active ##
   # Burp Suite #
   Target - Sitemap tabs to get list of sub domains
