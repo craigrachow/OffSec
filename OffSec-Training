@@ -12,16 +12,44 @@
   Sudo apt install nodejs
   sudo  npm install –force
   Install FoxyProxy for web browser. It’s a plugin. Configure for ip 127.0.0.1
-  Install Sublist3r
+ # Install Sublist3r #
   sudo apt install sublist3r
+ # Check for Nikto, Dirbusster, cURL, Nmap, 
 
 
+#################################################################################################
+#                                                                                               #
+#                                         PenTesting                                            #
+#  Reconnaissance, Scanning & Enumeration, Gaining Access, Maintaining Access, Covering Tracks  #
+#                                                                                               #
+#################################################################################################
+
+####################
+#  Reconnaissance  #     
+####################
+
+## Passive ##
+  # Sublist3r # -- Information on domain links
+  sublist3r -d irobot.com
+  # search crt.sh # -- website for domain information
+  %.irobot.com 
+
+## Active ##
+  # Burp Suite #
+  Target - Sitemap tabs to get list of sub domains
+  
 
 Enumeration
 
-Information on domain links
-sublist3r -d irobot.com
-search crt.sh website for domain information, %.irobot.com 
+search juicy shop guys book, add to git
+add dcm and juice shop guy to git under headding good resources
+owasp test guide
+
+
+
+
+## Attacks ##
+OWASP Top 10 ()
 
 
 Links
@@ -64,3 +92,6 @@ https://github.com/bkimminich/www-project-web-security-testing-guide
   # Rtfm: Red Team Field Manual -- Btfm: Blue Team Field Manual -- Ptfm: Purple Team Field Manual
   # The Hacker Playbook 3: Practical Guide To Penetration Testing by Peter Kim 
   https://www.amazon.com/Hacker-Playbook-Practical-Penetration-Testing/dp/1980901759/ref=pd_sbs_2?pd_rd_w=JKD1n&pf_rd_p=c52600a3-624a-4791-b4c4-3b112e19fbbc&pf_rd_r=YPQ2DHSFV8B2C3ZZR0NS&pd_rd_r=280a4514-b97d-42e2-bab4-c7d3ca46279c&pd_rd_wg=xnmRD&pd_rd_i=1980901759&psc=1
+
+# OWASP Top 10
+https://github.com/tanprathan/OWASP-Testing-Checklist
