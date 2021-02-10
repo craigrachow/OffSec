@@ -44,6 +44,24 @@
 
 Enumeration
 
+
+## Windows Enumeration ##
+  # RDP from Linux to Windows
+    xfreerdp /v:10.129.72.169 /u:htb-student
+
+  # Run the following powershell commands to get machine and user info
+    tree "c:\" | out-file -append Win-Recon.txt
+    Get-Service | ? {$_.Status -eq "Running"} |fl | out-file -append Win-Recon.txt
+    Get-Module .\PowerView.ps1;Get-LocalGroup |fl | out-file -append Win-Recon.txt
+    icacls c:\Users | out-file -append Win-Recon.txt
+    Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber | out-file -append Win-Recon.txt
+    Get-MpComputerStatus | findstr "True" | out-file -append Win-Recon.txt
+    wmic useraccount get domain,name,sid | out-file -append Win-Recon.txt
+    whoami /all | out-file -append Win-Recon.txt
+    reg query HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run | out-file -append Win-Recon.txt
+    wmic os list brief | out-file -append Win-Recon.txt
+    Get-WmiObject -Class Win32_OperatingSystem | select SystemDirectory,BuildNumber,SerialNumber,Version | ft | out-file -append Win-Recon.txt
+
 search juicy shop guys book, add to git
 add dcm and juice shop guy to git under headding good resources
 owasp test guide
