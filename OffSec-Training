@@ -34,7 +34,10 @@
   sublist3r -d irobot.com
   # search crt.sh # -- website for domain information
   %.irobot.com 
-  # search domain at hunter.io -- this will give email addresses  
+  # search domain at hunter.io, https://weleakinfo.to, https://haveibeenpwned.com, https://www.dehashed.com, https://mypwd.io/ -- this will give email addresses  
+  # look for cyphers 
+    nmap -p 443 --script=ssl-enum-ciphers 204.0.0.0
+    nmap -p80,443 -A -T4 2044.0.0.0
   # visit target website and look at firefox plugin Wappalizer -- will display webapp hosting info
   
 ## Active ##
