@@ -15,6 +15,8 @@
  #Install Wappalizer for web browser
  # Install Sublist3r #
   sudo apt install sublist3r
+ # Install SecLists
+  sudo apt-get install seclists
  # Check for Nikto, Dirbusster, cURL, Nmap, 
 
 
@@ -43,7 +45,20 @@
 ## Active ##
   # Burp Suite #
   Target - Sitemap tabs to get list of sub domains
-  
+  # Fluff # - Looks at web directories
+  sudo sed -i 's/^\#.*$//g' /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt && sudo sed -i '/^$/d' /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ
+  ffuf -w <SNIP> -u http://206.189.121.131:30716/FUZZ
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30716/FUZZ >> fluff-results.txt
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ <SNIP>
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ -u http://206.189.121.131:30532/blog/indexFUZZ >> fluff-results.txt
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30532/blog/FUZZ.php >> fluff-results.txt
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30532/FUZZ -recursion -recursion-depth 1 -e .php -v >> fluff-results2.txt
+  sudo sh -c 'echo "http://206.189.121.131  academy.htb" >> /etc/hosts'
+  ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u https://FUZZ.hackthebox.eu 
+  ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb'
+  ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb' -fs 900
+
 
 Enumeration
 
@@ -94,7 +109,7 @@ https://github.com/AnasAboureada/Penetration-Testing-Study-Notes/blob/master/scr
 https://github.com/so87/OSCP-PwK/blob/master/Penetration%20Testing%20Tools.pdf
 https://thehacktoday.com/how-to-crack-a-password-protected-zip-files-using-kali-linux/
 https://www.reddit.com/r/oscp/comments/a9e2yv/from_0_to_oscp_in_90days/
-
+https://github.com/danielmiessler?tab=repositories
 https://bitvijays.github.io/LFC-VulnerableMachines.html
 https://github.com/jivoi/pentest
 https://github.com/bugcrowd/bugcrowd_university
