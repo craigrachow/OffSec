@@ -1,3 +1,34 @@
+
+tib3rius privesc courses
+ippsec rocks
+pentest monkey reverse shell cheat sheet
+whoisflynn template
+https://github.com/Tib3rius/AutoRecon
+https://www.reddit.com/r/oscp/comments/ftdzmx/autorecon_your_take/
+https://kalilinuxtutorials.com/autorecon-multi-threaded-network-reconnaissance/
+
+Taking notes
+
+Own3d Proof
+Linux - hostname && whoami && cat proof.txt && ip a
+Windows - hostname && whoami.exe && type proof.txt && ipconfig /all
+
+https://www.offensive-security.com/offsec/oscp-osce-oswp-review/
+
+https://github.com/moshekaplan/pentesting_notes/blob/master/OSCP_prep.md
+
+
+Penetration Testing with Kali Linux Syllabus
+https://www.offensive-security.com/documentation/penetration-testing-with-kali.pdf
+
+https://scund00r.com/all/oscp/2018/02/25/passing-oscp.html
+
+https://medium.com/@hakluke
+
+https://medium.com/@hakluke/haklukes-ultimate-oscp-guide-part-3-practical-hacking-tips-and-tricks-c38486f5fc97
+
+https://github.com/0x4D31/awesome-oscp
+
 https://github.com/bugcrowd/bugcrowd_university
 
 https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters/?utm_source=website&utm_medium=blog&utm_content=education&utm_campaign=resourcekitweb
