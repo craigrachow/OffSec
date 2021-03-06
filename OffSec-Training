@@ -58,6 +58,13 @@
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u https://FUZZ.hackthebox.eu 
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb'
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb' -fs 900
+  
+  -- sub domain fuzzing, do without -fs first --
+  ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://academy.htb:32182/ -H 'Host: FUZZ.academy.htb'
+  -- extension scan  --
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ -u http://academy.htb:32182/indexFUZZ
+  -- directory scan --
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://academy.htb:32182/FUZZ -recursion -recursion-depth 3 -e .php -v 
 
 
 Enumeration
