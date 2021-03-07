@@ -65,7 +65,10 @@
   ffuf -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ -u http://academy.htb:32182/indexFUZZ
   -- directory scan --
   ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://academy.htb:32182/FUZZ -recursion -recursion-depth 3 -e .php -v 
-
+  -- paramater scan --
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u http://faculty.academy.htb:30248/courses/linux-security.php7?FUZZ=key -fs xxx
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u http://faculty.academy.htb:30248/courses/linux-security.php7 -X POST -d 'FUZZ=key' -H 'Content-Type: application/x-www-form-urlencoded'
+  -- paramater answers --
 
 Enumeration
 
