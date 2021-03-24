@@ -1,7 +1,7 @@
 # Hacking Lessons
 Lessons and Tutorials Covered
 *
-* File Inclusion / Directory Traversal
+* `<File Inclusion>' Directory Traversal (HTB Academy)> File Inclusion / Directory Traversal
 * Nmap
 *
 
