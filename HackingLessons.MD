@@ -1,4 +1,4 @@
-#* Hacking Lessons and Tutorials
+# Hacking Lessons and Tutorials
 *
 *
 *
