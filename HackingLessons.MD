@@ -5,14 +5,17 @@ Lessons and Tutorials Covered
 * Nmap
 *
 
-* Connect to VPN
+
+
+
+##### Connect to VPN
 > sudo openvpn user.ovpn
 
 
 
 
 
-## File Inclusion / Directory Traversal (HTB Academy)
+### File Inclusion / Directory Traversal (HTB Academy)
 Often see a parameter like /index.php?page=about. Under the hood, index.php will probably pull header.php, about.php, and footer.php. Since you control the about portion of the request, it may be possible to have the webserver grab other files! Another common place is within languages. If you see ?lang=en; then the website will grab files from the /en/ directory.
 
 * RCE through PHP Session Files
@@ -31,7 +34,7 @@ Poison the Cookie
 
 
 
-## Nmap
+### Nmap
 nmap -Pn -sC -sV -oA all_tcp -T4 --reason -vvvvvvvvvv -p- IP
 nmap -sS -sC -sV -Pn -p- -T4 -A host ip
 nmap -sV --script=smb* host ip
