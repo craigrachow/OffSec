@@ -1,9 +1,11 @@
-# Hacking Lessons and Tutorials
+# Hacking Lessons
+Lessons and Tutorials Covered
 *
 *
 *
 *
-Connect to VPN
+
+* Connect to VPN
 > sudo openvpn user.ovpn
 
 
