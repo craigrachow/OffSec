@@ -6,6 +6,8 @@ https://book.hacktricks.xyz/
 
 # To Read
 
+https://cryptokait.com/2020/03/04/a-beginners-guide-to-scanning-with-dirbuster-for-the-ncl-games/
+https://cryptokait.com/2019/09/10/intro-to-scanning-for-the-national-cyber-league-games/
 
 https://www.offensive-security.com/offsec/oscp-osce-oswp-review/
 
