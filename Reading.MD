@@ -17,6 +17,8 @@ https://github.com/moshekaplan/pentesting_notes/blob/master/OSCP_prep.md
 Penetration Testing with Kali Linux Syllabus
 https://www.offensive-security.com/documentation/penetration-testing-with-kali.pdf
 
+https://github.com/payloadbox
+https://github.com/swisskyrepo/PayloadsAllTheThings
 
 https://scund00r.com/all/oscp/2018/02/25/passing-oscp.html
 
