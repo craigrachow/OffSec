@@ -29,3 +29,10 @@ https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite
 
 https://github.com/carlospolop/legion
 https://github.com/swisskyrepo/PayloadsAllTheThings
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
+https://github.com/rebootuser/LinEnum
+https://github.com/sleventyeleven/linuxprivchecker
+https://github.com/GhostPack/Seatbelt
+https://github.com/411Hall/JAWS
+https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite
