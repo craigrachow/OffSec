@@ -1,10 +1,12 @@
 # Hacking Lessons
 Lessons and Tutorials Covered
-*
-* Directory Traversal (HTB Academy)> File Inclusion / Directory Traversal
-* Metasploit
-* Nmap
-*
+
+
+* File Inclusion / Directory Traversal (HTB Academy)
+* Linux Fundermentals (HTB Academy)
+* Metasploit (HTB Academy)
+* Nmap (HTB Academy)
+* Windows Fundermentals (HTB Academy)
 
 
 
