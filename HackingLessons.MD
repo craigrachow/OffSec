@@ -84,14 +84,19 @@ We can now execute OS-level commands by adding a parameter to the GET request. i
 * System Info Commands
 > uname -a - shows OS version
 > id - returns users id
-apt-cache show impacket-scripts - show info about a package
-apt list --installed - show installed packages
-dpkg -l
-git clone https://github.com/craigrachow/OffSec/blob/main
-dpkg -i strace_4.21-1ubuntu1_amd64.deb - download and install a package
-ps -aux | grep ssh - check if a service is running
-systemctl list-units --type=service - list all service
-sudo updatedb && locate xx - looks for a file
+> ps -aux | grep ssh - check if a service is running
+> systemctl list-units --type=service - list all service
+> sudo updatedb && locate xx - looks for a file
+> apt-cache show impacket-scripts - show info about a package
+> apt list --installed - show installed packages
+> dpkg -l - show installed packages
+> 
+* Download Packages
+Git
+> git clone https://github.com/craigrachow/OffSec/blob/main
+Download and install a package
+> dpkg -i strace_4.21-1ubuntu1_amd64.deb
+
 
 
 ### Metasploit
