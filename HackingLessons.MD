@@ -228,13 +228,23 @@ onesixtyone -c dict.txt 10.129.42.254	Brute force SNMP secret string
 
 
 ## Windows Fundermentals
-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber - get OS version number
+> Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber - get OS version number
 wmic os list brief - same as above
 
-xfreerdp /v:<targetIp> /u:htb-student /p:Password - RDP from unix
+> xfreerdp /v:<targetIp> /u:htb-student /p:Password - RDP from unix
 
-Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl - list running services
+Get-Service	PowerShell cmdlet to view running services
+> Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl - list running services
 
+> icacls c:\users /grant joe:f	Grant a user full permissions to a directory
+
+> sconfig	Load Server Configuration menu in Windows Server Core
+
+
+  
+  
+  
+  
 
 * list
   * list
