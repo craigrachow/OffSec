@@ -134,14 +134,23 @@ Download and install a package
 
 * scan for services 
 > netcat 10.10.10.10 22
+
 > nmap 10.129.42.253
+
 > nmap -sV -sC -p- 10.129.42.253
+
 > nc -nv 10.129.42.253 21
+
 > nmap -sC -sV -p21 10.10.10.121
+
 > ftp -p 10.129.42.253
-nmap -A -p445 10.129.42.253
-smbclient -N -L \\\\10.129.42.253
-smbclient -U bob \\\\10.129.42.253\\users
+
+> nmap -A -p445 10.129.42.253
+
+> smbclient -N -L \\\\10.129.42.253
+
+> smbclient -U bob \\\\10.129.42.253\\users
+
 * Run scan on exploitable components 
 > searchsploit openssh 7.2 - Search for public exploits for a web application
 * Using MSF Console
