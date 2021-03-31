@@ -13,6 +13,7 @@ https://www.offensive-security.com/offsec/oscp-osce-oswp-review/
 
 https://github.com/moshekaplan/pentesting_notes/blob/master/OSCP_prep.md
 
+/opt/nishang/ && git clone https://github.com/samratashok/nishang.git /opt/nishang
 
 Penetration Testing with Kali Linux Syllabus
 https://www.offensive-security.com/documentation/penetration-testing-with-kali.pdf
