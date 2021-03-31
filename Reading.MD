@@ -45,6 +45,8 @@ https://m.youtube.com/channel/UC0ZTPkdxlAKf-V33tqXwi3Q?utm_source=website&utm_me
 
 https://github.com/hmaverickadams/TCM-Security-Sample-Pentest-Report
 
+https://underthewire.tech/cyborg
+https://overthewire.org/wargames/
 
 # Have Read - And is good!
 *
