@@ -9,6 +9,30 @@ https://book.hacktricks.xyz/
 https://cryptokait.com/2020/03/04/a-beginners-guide-to-scanning-with-dirbuster-for-the-ncl-games/
 https://cryptokait.com/2019/09/10/intro-to-scanning-for-the-national-cyber-league-games/
 
+https://portswigger.net/web-security
+
+https://github.com/opexxx/awesome-pentest
+https://github.com/opexxx/Metasploit-Unleashed-ebook
+https://github.com/theGuildHall/pwnbox
+
+https://github.com/theGuildHall/pwnbox
+ https://github.com/strongcourage/oscp
+https://github.com/ajdumanhug/Security-Headers
+https://github.com/uppusaikiran/awesome-ctf-cheatsheet
+https://github.com/six2dez/reconftw
+https://github.com/six2dez/OneListForAll
+https://github.com/whoisflynn
+https://github.com/six2dez/OSCP-Human-Guide
+https://book.hacktricks.xyz/windows/active-directory-methodology
+https://book.hacktricks.xyz/linux-unix/privilege-escalation
+https://book.hacktricks.xyz/pentesting-methodology
+https://book.hacktricks.xyz/linux-unix/useful-linux-commands
+https://book.hacktricks.xyz/pentesting/pentesting-network#sniffing
+https://book.hacktricks.xyz/brute-force
+https://book.hacktricks.xyz/windows/basic-cmd-for-pentesters
+https://www.tutorialspoint.com/ethical_hacking/ethical_hacking_tools.htm
+
+
 https://www.offensive-security.com/offsec/oscp-osce-oswp-review/
 
 https://github.com/moshekaplan/pentesting_notes/blob/master/OSCP_prep.md
