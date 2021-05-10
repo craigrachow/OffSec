@@ -257,9 +257,13 @@ smbclient -N -L \\\\10.129.42.253	List SMB Shares
 smbclient \\\\10.129.42.253\\users	Connect to an SMB share
 snmpwalk -v 2c -c public 10.129.42.253 1.3.6.1.2.1.1.5.0	Scan SNMP on an IP
 onesixtyone -c dict.txt 10.129.42.254	Brute force SNMP secret string
+whatweb 10.129.42.190
 
-
-
+nmap -sV --open -oA nibbles_initial_scan <ip address>
+nmap -p- --open -oA nibbles_full_tcp_scan 10.129.42.190
+nc -nv 10.129.42.190 22
+nmap -sC -p 22,80 -oA nibbles_script_scan 10.129.42.190
+nmap -sV --script=http-enum -oA nibbles_nmap_http_enum 10.129.42.190 
 
 
 
