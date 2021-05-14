@@ -177,6 +177,9 @@ Always perform bash_history or PSReadLine after changing user
 
 > sudo su user - 	Switch to a user (if we have access to sudo su)
 
+PEAS
+> git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
+
 * Cronjob locations  - /etc/crontab /etc/cron.d /var/spool/cron/crontabs/root
 
 * Generate SSH Keys
