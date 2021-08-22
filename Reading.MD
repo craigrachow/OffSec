@@ -10,6 +10,7 @@ https://cryptokait.com/2020/03/04/a-beginners-guide-to-scanning-with-dirbuster-f
 https://cryptokait.com/2019/09/10/intro-to-scanning-for-the-national-cyber-league-games/
 
 https://portswigger.net/web-security
+https://github.com/bigb0sss/RedTeam-OffensiveSecurity
 
 https://github.com/opexxx/awesome-pentest
 https://github.com/opexxx/Metasploit-Unleashed-ebook
