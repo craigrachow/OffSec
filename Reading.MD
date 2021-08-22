@@ -11,6 +11,7 @@ https://cryptokait.com/2019/09/10/intro-to-scanning-for-the-national-cyber-leagu
 
 https://portswigger.net/web-security
 https://github.com/bigb0sss/RedTeam-OffensiveSecurity
+https://github.com/kmkz/Pentesting/blob/master/Pentest-Cheat-Sheet
 
 https://github.com/opexxx/awesome-pentest
 https://github.com/opexxx/Metasploit-Unleashed-ebook
