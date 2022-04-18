@@ -9,6 +9,7 @@ Lessons and Tutorials Covered
 ## NMAP
 # port scanner
 > nmap -sV -sC -p- 10.129.42.253
+> nmap -sV --open -oA nibbles_initial_scan <ip address>
 > whatweb --no-errors 10.10.10.0/24
 > nmap -sV --script=banner -p21 10.10.10.0/24
 > nmap -sC -sV -p21 10.129.42.253
