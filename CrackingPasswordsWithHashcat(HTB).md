@@ -31,6 +31,16 @@ hashcat -a 1 -m 1400 sha256_hash_example something.txt rockyou.txt
 #Crack the following hash: 7106812752615cdfe427e01b98cd4083
   hashcat -a 0 -m 1000 -g 1000 7106812752615cdfe427e01b98cd4083 /opt/useful/SecLists/Passwords/Leaked-Databases/rockyou
   
+#Extract the hash from the attached 7-Zip file, crack the hash, and submit the value of the flag.txt file contained inside the archive.
+  Follow this site https://infinitelogins.com/2020/04/29/how-to-crack-encrypted-7z-archives/
+  unzip Misc_hashes.zip THEN export has from hashcat.7z file
+  locate 7z2john.pl THEN /usr/share/john/7z2john.pl hashcat.7z > hashN  IF ERROR sudo apt install libcompress-raw-lzma-perl -y
+  remove first 10 characters from hash file.
+  hashcat -m 11600 hashN /usr/share/wordlists/rockyou.txt
+  7z x hashcat.7z
+
+
+
   
   
     Cheat Sheet
