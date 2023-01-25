@@ -29,9 +29,7 @@ hashcat -a 1 -m 1400 sha256_hash_example something.txt rockyou.txt
    hashcat -a 0 -m 100 46244749d1e8fb99c37ad4f14fccb601ed4ae283 /opt/useful/SecLists/Passwords/Leaked-Databases/rockyou-75.txt -r rule3.txt
 
 #Crack the following hash: 7106812752615cdfe427e01b98cd4083
-  hashcat -a 0 -m 1000 7106812752615cdfe427e01b98cd4083 /opt/useful/SecLists/Passwords/Leaked-Databases/rockyou
-  
-  
+  hashcat -a 0 -m 1000 -g 1000 7106812752615cdfe427e01b98cd4083 /opt/useful/SecLists/Passwords/Leaked-Databases/rockyou
   
   
   
