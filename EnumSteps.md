@@ -1,12 +1,14 @@
 # Enumeration Steps
 Steps to do while enumberating a target. 
 
-### NMAP
+### Network Scans
 text
 
-**bold text**
+**Nmap**
 > Blockquote  
 
+**DnsEnum**
+> dnsenum -v example.com 
 ...
 
 ### OSINT
