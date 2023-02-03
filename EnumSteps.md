@@ -5,7 +5,12 @@ Steps to do while enumberating a target.
 text
 
 **Nmap**
-> Blockquote  
+> netcat 192.168.1.1 8080 --  
+> nmap -sV -sC -p- 192.168.1.1 --  
+> 
+
+
+
 
 **DnsEnum**
 > dnsenum -v example.com 
