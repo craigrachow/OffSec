@@ -4,6 +4,9 @@
 linux-smart-enumeration
 https://github.com/diego-treitos/linux-smart-enumeration
 
+https://www.autopsy.com
+
+
 win-inventory.bat (in my git repostory)
 win-exploit-suggester.py (in my git repostory)
 linux-local-enum.sh
