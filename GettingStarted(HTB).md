@@ -1,5 +1,38 @@
-# GettingStarted(HTB)
-Lessons and Tutorials Covered
+# GettingStarted(Complete)
+
+## Basic Tools 
+> - **Connect to VPN **  sudo openvpn user.ovpn   
+> - **Connect to FTP **  ftp 10.0.0.0   
+> - **Connect to SSH **  ssh user@10.0.0.0   
+
+## Service Scanning 
+> - **Run an nmap script scan on an IP **  nmap -sV -sC -p- 10.0.0.0   
+> - **Grab banner of an open port **  netcat 10.10.10.10 22   
+> - **List SMB Shares **  smbclient -N -L \\\\10.129.42.253   
+> - **Connect to a SMB Share **  smbclient \\\\10.129.42.253\\users
+> - **Grab banner of an open port **  netcat 10.10.10.10 22
+> - **Grab banner of an open port **  netcat 10.10.10.10 22
+> - 
+
+  
+## WEB Enumb
+> - **scan web directories** gobuster dir -u http://10.10.10.121/ -w /usr/share/dirb/wordlists/common.txt
+> - **scan sub directories of a website** gobuster dns -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/namelist.txt
+> - **List potential directories** curl 10.10.10.121/robots.txt
+> - **grab website banner** curl -IL https://www.inlanefreight.com
+> - **List details about webserver/certs** whatweb 10.10.10.121
+> - 
+  > whatweb --no-errors 10.10.10.0/24
+  # 
+  > 
+  # install seclists = git clone https://github.com/danielmiessler/SecLists && sudo apt install seclists -y
+  # Next, add a DNS Server such as 1.1.1.1 to the /etc/resolv.conf file.
+  > 
+
+
+
+
+
 
 ## NCAT
 # netcat can be used to connect to any listening port and interact with the service running on that port.
@@ -19,26 +52,9 @@ Lessons and Tutorials Covered
 > locate scripts/citrix
 > nmap --script <script name> -p<port> <host>
   
-## Connecting 
-  # ftp =   ftp -p 10.129.42.253
-  # smb =   smbclient -N -L \\\\10.129.42.253
-    smbclient \\\\10.129.42.253\\users
-    smbclient -U bob \\\\10.129.42.253\\users
-  # snmp =   snmpwalk -v 2c -c public 10.129.42.253 1.3.6.1.2.1.1.5.0
-    snmpwalk -v 2c -c private  10.129.42.253 
-    onesixtyone -c dict.txt 10.129.42.254
+
   
-  
-## WEB Enumb
-  # banner grabbing
-  > curl -IL https://www.inlanefreight.com
-  > whatweb 10.10.10.121
-  > whatweb --no-errors 10.10.10.0/24
-  # scan web directories
-  > gobuster dir -u http://10.10.10.121/ -w /usr/share/dirb/wordlists/common.txt
-  # install seclists = git clone https://github.com/danielmiessler/SecLists && sudo apt install seclists -y
-  # Next, add a DNS Server such as 1.1.1.1 to the /etc/resolv.conf file.
-  > gobuster dns -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/namelist.txt
+
   
 ## Exploit Scan
   # sudo apt install exploitdb -y
@@ -94,7 +110,7 @@ asp = <% eval request("cmd") %>
   > base64 file -w 0
   > user@remotehost$ echo f0VMRgIBAQAAAAAAAAAAAAIAPgABAAAA... <SNIP> ...lIuy9iaW4vc2gAU0iJ51JXSInmDwU | base64 -d > file
   
-
+##########################################################################################
 
 * File Inclusion / Directory Traversal (HTB Academy)
 * Linux Fundermentals (HTB Academy)
@@ -104,8 +120,6 @@ asp = <% eval request("cmd") %>
 * Web Enumeration
 * Windows Fundermentals (HTB Academy)
 
-##### Connect to VPN
-> sudo openvpn user.ovpn
 
   _______________________
   
