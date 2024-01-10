@@ -34,14 +34,18 @@
 ## Passive ##
   # Sublist3r # -- Information on domain links
   sublist3r -d irobot.com
+  sublist3r -d irobot.com -t 10 (makes it go faster, more threads also -v for showing verbose) 
   # search crt.sh # -- website for domain information
   %.irobot.com 
   # search domain at hunter.io, https://weleakinfo.to, https://haveibeenpwned.com, https://www.dehashed.com, https://mypwd.io/ -- this will give email addresses  
+  # OWASP/Amass # -- Information more subdomains
+    github site, then run it.
   # look for cyphers 
     nmap -p 443 --script=ssl-enum-ciphers 204.0.0.0
     nmap -p80,443 -A -T4 2044.0.0.0
   # visit target website and look at firefox plugin Wappalizer -- will display webapp hosting info
   
+
 ## Active ##
   # Burp Suite #
   Target - Sitemap tabs to get list of sub domains
