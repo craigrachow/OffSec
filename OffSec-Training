@@ -51,6 +51,8 @@
   
 
 ## Active ##
+  # look for open ports 
+    nmap -T4 -p- -A 204.0.0.0
   # Burp Suite #
   Target - Sitemap tabs to get list of sub domains
   # Fluff # - Looks at web directories
