@@ -44,6 +44,7 @@
     nmap -p 443 --script=ssl-enum-ciphers 204.0.0.0
     nmap -p80,443 -A -T4 2044.0.0.0
   # visit target website and look at firefox plugin Wappalizer -- will display webapp hosting info
+  # visit target website and look at web platform info https://builtwith.com/
   
 
 ## Active ##
