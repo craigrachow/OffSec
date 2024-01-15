@@ -115,7 +115,14 @@ owasp test guide
 
 
 
-## Attacks ##
+#############
+#  Attacks  #     
+#############
+# Reverse Shells #
+https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+# Linux priv esculation #
+https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+
 OWASP Top 10 ()
 
 
