@@ -18,7 +18,8 @@
  # Install SecLists
   sudo apt-get install seclists
  # Check for Nikto, Dirbusster, cURL, Nmap, 
-  nikto -h https://hostip 
+  nikto -h https://hostip -p 80  
+  nikto -h https://hostip -p 80 -o nikto_results -F txt
 
 
 #################################################################################################
