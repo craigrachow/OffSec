@@ -59,18 +59,17 @@
   Target - Sitemap tabs to get list of sub domains
   # Fluff # - Looks at web directories
   ffuf -w wordlist/dirbuster/directory-list-medium.txt:FUZZ -u http://192.168.1.1/FUZZ do again with port 8080 or other.
-  ffuf -w <SNIP> -u http://206.189.121.131:30716/FUZZ
   ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30716/FUZZ >> fluff-results.txt
-  ffuf -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ <SNIP>
   ffuf -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ -u http://206.189.121.131:30532/blog/indexFUZZ >> fluff-results.txt
   sudo sh -c 'echo "http://206.189.121.131  academy.htb" >> /etc/hosts'
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u https://FUZZ.hackthebox.eu 
-  ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb'
+  
 
-
+ # More Fluff # - Looks at web directories
   sudo sed -i 's/^\#.*$//g' /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt && sudo sed -i '/^$/d' /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt
   ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ
   ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30532/blog/FUZZ.php >> fluff-results.txt
+ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb'
   ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30532/FUZZ -recursion -recursion-depth 1 -e .php -v >> fluff-results2.txt
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb' -fs 900
   -- sub domain fuzzing, do without -fs first --
@@ -88,7 +87,6 @@
   
   ffuf -w /usr/share/seclists/Usernames/cirt-default-usernames.txt:FUZZ -u http://faculty.academy.htb:30248/courses/linux-security.php7 -X POST -d 'user=FUZZ'
   ffuf -w /usr/share/seclists/Discovery/Web-Content/raft-small-words-lowercase.txt:FUZZ -u http://faculty.academy.htb:30248/courses/linux-security.php7 -X POST -d 'username=FUZZ'
-  
   /usr/share/seclists/Usernames/irt-default-usernames.txt
 
 Enumeration
@@ -130,14 +128,9 @@ OWASP Top 10 ()
 
 
 Links
-https://github.com/hmaverickadams
 
-https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/
-https://owasp.org/www-project-web-security-testing-guide/
-https://github.com/OWASP/wstg
-https://github.com/tanprathan/OWASP-Testing-Checklist
-https://www.thecybermentor.com/zero-to-hero-pentesting
-https://github.com/tanprathan/OWASP-Testing-Guide-v5/blob/master/document/5_Reporting/Reporting.md
+
+
 Additional Learning 
 https://tulpasecurity.files.wordpress.com/2016/09/tulpa-pwk-prep-guide1.pdf
 https://bpatty.rocks/#!index.md
@@ -162,10 +155,14 @@ https://github.com/bkimminich/www-project-web-security-testing-guide
 ## Web Courses ##
 # Hack the Box Acadmy #
   https://academy.hackthebox.eu
+https://www.thecybermentor.com/
 
 ## YouTube ##
 https://www.youtube.com/watch?v=fNzpcB7ODxQ&list=WL&index=61&t=21676s
 
+## Other ##
+https://github.com/hmaverickadams - git that has everything, lessons, tools, reports.
+https://github.com/tanprathan/OWASP-Testing-Guide-v5/blob/master/document/5_Reporting/Reporting.md
 
 ## Books ##
   # Penetration Testing: A Hands-On Introduction to Hacking by Georgia Weidman 
@@ -176,7 +173,11 @@ https://www.youtube.com/watch?v=fNzpcB7ODxQ&list=WL&index=61&t=21676s
 
 # OWASP Top 10
 https://github.com/tanprathan/OWASP-Testing-Checklist
+https://owasp.org/www-project-web-security-testing-guide/
+https://github.com/OWASP/wstg
+https://github.com/tanprathan/OWASP-Testing-Checklist
 
 ## PRACTICE ##
   # Kioptrix L1 from Vulhub
-https://github.com/bkimminich/juice-shop
+https://github.com/bkimminich/juice-shop && https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/
+
