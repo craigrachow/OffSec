@@ -58,19 +58,21 @@
   # Burp Suite #
   Target - Sitemap tabs to get list of sub domains
   # Fluff # - Looks at web directories
-  sudo sed -i 's/^\#.*$//g' /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt && sudo sed -i '/^$/d' /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt
-  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ
+  ffuf -w wordlist/dirbuster/directory-list-medium.txt:FUZZ -u http://192.168.1.1/FUZZ do again with port 8080 or other.
   ffuf -w <SNIP> -u http://206.189.121.131:30716/FUZZ
   ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30716/FUZZ >> fluff-results.txt
   ffuf -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ <SNIP>
   ffuf -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ -u http://206.189.121.131:30532/blog/indexFUZZ >> fluff-results.txt
-  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30532/blog/FUZZ.php >> fluff-results.txt
-  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30532/FUZZ -recursion -recursion-depth 1 -e .php -v >> fluff-results2.txt
   sudo sh -c 'echo "http://206.189.121.131  academy.htb" >> /etc/hosts'
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u https://FUZZ.hackthebox.eu 
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb'
+
+
+  sudo sed -i 's/^\#.*$//g' /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt && sudo sed -i '/^$/d' /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30532/blog/FUZZ.php >> fluff-results.txt
+  ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://206.189.121.131:30532/FUZZ -recursion -recursion-depth 1 -e .php -v >> fluff-results2.txt
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://46.101.84.35:30254/ -H 'Host: FUZZ.academy.htb' -fs 900
-  
   -- sub domain fuzzing, do without -fs first --
   ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://academy.htb:32182/ -H 'Host: FUZZ.academy.htb'
   -- extension scan  --
@@ -129,7 +131,7 @@ OWASP Top 10 ()
 
 Links
 https://github.com/hmaverickadams
-https://github.com/bkimminich/juice-shop
+
 https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/
 https://owasp.org/www-project-web-security-testing-guide/
 https://github.com/OWASP/wstg
@@ -177,3 +179,4 @@ https://github.com/tanprathan/OWASP-Testing-Checklist
 
 ## PRACTICE ##
   # Kioptrix L1 from Vulhub
+https://github.com/bkimminich/juice-shop
