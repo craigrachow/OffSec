@@ -49,6 +49,7 @@
     nmap -p80,443 -A -T4 2044.0.0.0
   # visit target website and look at firefox plugin Wappalizer -- will display webapp hosting info  
   # visit target website and look at web platform info https://builtwith.com/  
+#Check mounts = showmount -e 192.168.0.1    && to	mount = mount -t nfs ip:/srv/nfs /mnt/dev
  
   
 
