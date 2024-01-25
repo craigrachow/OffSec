@@ -109,11 +109,6 @@ Enumeration
     wmic os list brief | out-file -append Win-Recon.txt
     Get-WmiObject -Class Win32_OperatingSystem | select SystemDirectory,BuildNumber,SerialNumber,Version | ft | out-file -append Win-Recon.txt
 
-search juicy shop guys book, add to git
-add dcm and juice shop guy to git under headding good resources
-owasp test guide
-
-
 
 
 #############
@@ -124,27 +119,6 @@ https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
 # Linux priv esculation #
 https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
 
-OWASP Top 10 ()
-
-
-Links
-
-
-
-Additional Learning 
-https://tulpasecurity.files.wordpress.com/2016/09/tulpa-pwk-prep-guide1.pdf
-https://bpatty.rocks/#!index.md
-https://guide.offsecnewbie.com/
-https://sushant747.gitbooks.io/total-oscp-guide/content/list_of_common_ports.html
-https://github.com/AnasAboureada/Penetration-Testing-Study-Notes/blob/master/scripts/useful_tricks.md & https://github.com/AnasAboureada/Penetration-Testing-Study-Notes/blob/master/cheatSheets/Cheatsheet_PenTesting.txt
-https://github.com/so87/OSCP-PwK/blob/master/Penetration%20Testing%20Tools.pdf
-https://thehacktoday.com/how-to-crack-a-password-protected-zip-files-using-kali-linux/
-https://www.reddit.com/r/oscp/comments/a9e2yv/from_0_to_oscp_in_90days/
-https://github.com/danielmiessler?tab=repositories
-https://bitvijays.github.io/LFC-VulnerableMachines.html
-https://github.com/jivoi/pentest
-https://github.com/bugcrowd/bugcrowd_university
-https://github.com/bkimminich/www-project-web-security-testing-guide
 
 ############################
 #                          #
@@ -156,13 +130,20 @@ https://github.com/bkimminich/www-project-web-security-testing-guide
 # Hack the Box Acadmy #
   https://academy.hackthebox.eu
 https://www.thecybermentor.com/
+https://github.com/bugcrowd/bugcrowd_university
 
 ## YouTube ##
 https://www.youtube.com/watch?v=fNzpcB7ODxQ&list=WL&index=61&t=21676s
 
 ## Other ##
+https://github.com/danielmiessler/SecLists    - wordlists
 https://github.com/hmaverickadams - git that has everything, lessons, tools, reports.
 https://github.com/tanprathan/OWASP-Testing-Guide-v5/blob/master/document/5_Reporting/Reporting.md
+https://bpatty.rocks/#!index.md - good guide to process and cheatsheet/scripts etc.
+https://guide.offsecnewbie.com/ - PENTEST walkthrough guide 
+https://sushant747.gitbooks.io/total-oscp-guide/content/list_of_common_ports.html   - common ports and how to use them
+https://github.com/AnasAboreeda/Penetration-Testing-Study-Notes/tree/master?tab=readme-ov-file - good guide to process and cheatsheet/scripts etc.
+https://bitvijays.github.io/index.html   -  comprehensive oppsec and testing guide. 
 
 ## Books ##
   # Penetration Testing: A Hands-On Introduction to Hacking by Georgia Weidman 
@@ -180,4 +161,5 @@ https://github.com/tanprathan/OWASP-Testing-Checklist
 ## PRACTICE ##
   # Kioptrix L1 from Vulhub
 https://github.com/bkimminich/juice-shop && https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/
+https://docs.cycubix.com/application-security-series/web-application-security-essentials/webgoat-8/installation-1 
 
