@@ -4,7 +4,9 @@
 linux-smart-enumeration
 https://github.com/diego-treitos/linux-smart-enumeration
 
-https://www.autopsy.com
+https://www.autopsy.com  
+
+https://github.com/jivoi/pentest   
 
 
 win-inventory.bat (in my git repostory)
