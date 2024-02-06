@@ -41,3 +41,6 @@ https://github.com/sleventyeleven/linuxprivchecker
 https://github.com/GhostPack/Seatbelt
 https://github.com/411Hall/JAWS
 https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite
+
+## Good Gits ##
+https://github.com/open-sauced/pizza-verse/tree/main  -  Pizza Git
